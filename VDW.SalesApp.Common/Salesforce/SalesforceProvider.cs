@@ -7,11 +7,10 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using VDW.SalesApp.Common.Salesforce.Interface;
 
 namespace VDW.SalesApp.Common.Salesforce
 {
-    public class SalesforceProvider : ISalesforceProvider
+    public class SalesforceProvider
     {
         public async Task<SaleforceAuthorization> GetAccessToken(string iss, string aud, string sub, Uri authUrl, string privateKeyFilePath)
         {
