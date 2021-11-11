@@ -49,24 +49,22 @@ namespace VDW.SalesApp.Common.Salesforce
             return tokenResponse;
         }
 
-        private string SignSHA256RSAAsync(string itemToSign, string privateKeyFilePath)
+        private string SignSHA256RSAAsync(string itemToSign, string pemfileValue)
         {
             var bytes = Encoding.UTF8.GetBytes(itemToSign);
-            using (var stream = File.OpenRead(privateKeyFilePath))
-            using (var reader = new PemReader(stream))
+            var privateKeyBytes = Encoding.UTF8.GetBytes(pemfileValue);
+            var keystream = new MemoryStream(privateKeyBytes);
+            using (var reader = new PemReader(keystream))
             {
                 var rsaParameters = reader.ReadRsaKey();
                 byte[] hv = SHA256.Create().ComputeHash(bytes);
                 RSACryptoServiceProvider prov = new RSACryptoServiceProvider();
-                RSAParameters rsp = new RSAParameters();
                 prov.ImportParameters(rsaParameters);
                 RSAPKCS1SignatureFormatter rf = new RSAPKCS1SignatureFormatter(prov);
                 rf.SetHashAlgorithm("SHA256");
                 byte[] signature = rf.CreateSignature(hv);
                 return Base64UrlEncoder.Encode(signature);
             }
-
-
         }
         private int GetExpiryDate()
         {
