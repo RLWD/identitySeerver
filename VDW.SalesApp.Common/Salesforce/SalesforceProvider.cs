@@ -12,7 +12,7 @@ namespace VDW.SalesApp.Common.Salesforce
 {
     public class SalesforceProvider
     {
-        public async Task<SaleforceAuthorization> GetAccessToken(string iss, string aud, string sub, Uri authUrl, string privateKeyFilePath)
+        public SaleforceAuthorization GetAccessToken(string iss, string aud, string sub, Uri authUrl, string privateKeyFilePath)
         {
             var header = new { alg = "RS256", typ = "JWT" };
             var expr = GetExpiryDate();
