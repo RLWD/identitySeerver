@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDW.SalesApp.Common", "VDW.SalesApp.Common\VDW.SalesApp.Common.csproj", "{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDW.SalesApp.Common", "VDW.SalesApp.Common\VDW.SalesApp.Common.csproj", "{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDW.SalesApp.Common.Test", "VDW.SalesApp.Common.Test\VDW.SalesApp.Common.Test.csproj", "{D034EF8A-E5C5-4414-B984-94B3947724AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDW.SalesApp.Common.Test", "VDW.SalesApp.Common.Test\VDW.SalesApp.Common.Test.csproj", "{D034EF8A-E5C5-4414-B984-94B3947724AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDW.SalesApp.IdentityServer", "VDW.SalesApp.IdentityServer\VDW.SalesApp.IdentityServer.csproj", "{0DF812A9-65D2-48ED-AD32-5EE613B1631C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
