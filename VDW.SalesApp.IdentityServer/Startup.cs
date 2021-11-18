@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
+using System.Linq;
 using VDW.SalesApp.IdentityServer.Models;
-using VDW.SalesApp.IdentityServer.Services;
 
 namespace VDW.SalesApp.IdentityServer
 {
@@ -18,18 +17,17 @@ namespace VDW.SalesApp.IdentityServer
 
 		public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
-		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			var inMemoryApiScopes = Configuration.GetSection("ApiScopes").Get<List<ApiScopeConfig>>().Select(c => c.ToInMemoryApiScope());
+			var inMemoryClients = Configuration.GetSection("Clients").Get<List<ClientConfig>>().Select(c => c.ToInMemoryClient());
+
 			_ = services.AddIdentityServer()
 						.AddDeveloperSigningCredential()
-						.AddInMemoryApiScopes(Config.ApiScopes)
-						.AddInMemoryClients(Config.Clients)
-						.AddProfileService<ProfileService>();
+						.AddInMemoryApiScopes(inMemoryApiScopes)
+						.AddInMemoryClients(inMemoryClients);
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			app.UseDeveloperExceptionPage();
