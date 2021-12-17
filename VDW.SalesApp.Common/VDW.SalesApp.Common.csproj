@@ -5,10 +5,10 @@
     <Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>This is a nugget package that contain common fuctionalities that is share across microservices</Description>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>Vdw.SalesApp.Common Version 1.0.2
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>3Vdw.SalesApp.Common Version 1.0.3
 Adding finctionalities to support blob storage</PackageReleaseNotes>
   </PropertyGroup>
 
