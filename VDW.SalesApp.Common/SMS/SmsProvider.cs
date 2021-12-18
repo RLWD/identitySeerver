@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using TencentCloud.Common;
 using TencentCloud.Common.Profile;
 using TencentCloud.Sms.V20210111;
@@ -8,7 +9,7 @@ namespace VDW.SalesApp.Common.SMS
 {
     public class SmsProvider
     {
-        public string AddSmsTemplate(string secretId, string secretKey, string templateFormat, string remarks, ulong isInternationalSmsTemplate)
+        public AddTemplateApiResponse AddSmsTemplate(string secretId, string secretKey, string templateFormat, string remarks, ulong isInternationalSmsTemplate)
         {
             try
             {
@@ -23,16 +24,16 @@ namespace VDW.SalesApp.Common.SMS
                     HttpProfile = new HttpProfile { Timeout = 30, Endpoint = "sms.tencentcloudapi.com" }
                 };
                 var smsClient = new SmsClient(cred, "ap-guangzhou", clientProfile);
-                var smsTemplate = new AddSmsTemplateRequest { International = isInternationalSmsTemplate, Remark = remarks, SmsType = 0, TemplateContent = templateFormat, TemplateName = "SalesApps Verification Code" };
+                var smsTemplate = new AddSmsTemplateRequest { International = isInternationalSmsTemplate, Remark = remarks, SmsType = 0, TemplateContent = templateFormat, TemplateName = "SalesApps Verification Code with Expiry Timeout" };
                 AddSmsTemplateResponse resp = smsClient.AddSmsTemplateSync(smsTemplate);
-                return resp.ToString();
+                return JsonConvert.DeserializeObject<AddTemplateApiResponse>(AbstractModel.ToJsonString(resp));
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
-        public string SendSms(string sdkAppId, string secretId, string secretKey, string smsContent, string phoneNumberwithCountryCode)
+        public SmsApiResponse SendSms(string templateId, string sdkAppId, string secretId, string secretKey, string[] smsContent, string phoneNumberwithCountryCode)
         {
             try
             {
@@ -47,9 +48,9 @@ namespace VDW.SalesApp.Common.SMS
                     HttpProfile = new HttpProfile { Timeout = 30, Endpoint = "sms.tencentcloudapi.com" }
                 };
                 var smsClient = new SmsClient(cred, "ap-guangzhou", clientProfile);
-                var smsReq = new SendSmsRequest { TemplateId = "1243395", TemplateParamSet = new string[] { smsContent }, SmsSdkAppId = sdkAppId, SessionContext = "", PhoneNumberSet = new string[] { phoneNumberwithCountryCode } };
+                var smsReq = new SendSmsRequest { TemplateId = templateId, TemplateParamSet = smsContent, SmsSdkAppId = sdkAppId, SessionContext = "", PhoneNumberSet = new string[] { phoneNumberwithCountryCode } };
                 SendSmsResponse resp = smsClient.SendSmsSync(smsReq);
-                return AbstractModel.ToJsonString(resp);
+                return JsonConvert.DeserializeObject<SmsApiResponse>(AbstractModel.ToJsonString(resp));
             }
             catch (Exception ex)
             {
