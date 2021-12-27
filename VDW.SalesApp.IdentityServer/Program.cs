@@ -1,9 +1,13 @@
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace VDW.SalesApp.IdentityServer
 {
@@ -20,19 +24,14 @@ namespace VDW.SalesApp.IdentityServer
 				 {
 					 var builder = config.Build();
 
-					 var keyVaultName = builder["Certificate:AzureKeyVaultName"];
-					 if (!string.IsNullOrEmpty(keyVaultName))
+					 if (context.HostingEnvironment.IsProduction())
 					 {
-						 var keyVaultEndpoint = $"https://{keyVaultName}.vault.azure.net/";
-						 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-						 var keyVaultClient = new KeyVaultClient(
-							 new KeyVaultClient.AuthenticationCallback(
-								 azureServiceTokenProvider.KeyVaultTokenCallback));
-
-						 config.AddAzureKeyVault(
-							 keyVaultEndpoint,
-							 keyVaultClient,
-							 new DefaultKeyVaultSecretManager());
+						 var builtConfig = config.Build();
+						 var keyVaultName = builder["Certificate:AzureKeyVaultName"];
+						 var secretClient = new SecretClient(
+							 new Uri($"https://{keyVaultName}.vault.azure.net/"),
+							 new DefaultAzureCredential());
+						 config.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
 					 }
 				 })
 				.ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
