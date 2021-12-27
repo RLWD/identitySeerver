@@ -31,17 +31,17 @@ namespace VDW.SalesApp.IdentityServer
 
 			var idsvrBuilder = services.AddIdentityServer();
 
-			if (_environment.IsDevelopment())
-			{
-				idsvrBuilder.AddDeveloperSigningCredential();
-			}
-			else
-			{
+			//if (_environment.IsDevelopment())
+			//{
+			//	idsvrBuilder.AddDeveloperSigningCredential();
+			//}
+			//else
+			//{
 				var (ActiveCertificate, SecondaryCertificate) = GetCertificates(_environment, _configuration).GetAwaiter().GetResult();
 				idsvrBuilder.AddSigningCredential(ActiveCertificate);
 				//var cert = Path.Combine(_environment.ContentRootPath, "Certificates", "identityserver.pfx");
 				//idsvrBuilder.AddSigningCredential(new X509Certificate2(cert, "z2n+nUGMMqE<2a_j"));
-			}
+			//}
 
 			idsvrBuilder
 				.AddInMemoryApiScopes(inMemoryApiScopes)
