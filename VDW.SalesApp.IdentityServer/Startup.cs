@@ -23,28 +23,27 @@ namespace VDW.SalesApp.IdentityServer
 			_environment = env;
 		}
 
-
 		public void ConfigureServices(IServiceCollection services)
 		{
 			var inMemoryApiScopes = _configuration.GetSection("ApiScopes").Get<List<ApiScopeConfig>>().Select(c => c.ToInMemoryApiScope());
+			var inMemoryApiResources = _configuration.GetSection("ApiResources").Get<List<ApiResourceConfig>>().Select(c => c.ToInMemoryApiResource());
 			var inMemoryClients = _configuration.GetSection("Clients").Get<List<ClientConfig>>().Select(c => c.ToInMemoryClient());
 
 			var idsvrBuilder = services.AddIdentityServer();
 
-			if (_environment.IsDevelopment())
-			{
-				idsvrBuilder.AddDeveloperSigningCredential();
-			}
-			else
-			{
+			//if (_environment.IsDevelopment())
+			//{
+			//	idsvrBuilder.AddDeveloperSigningCredential();
+			//}
+			//else
+			//{
 				var (ActiveCertificate, SecondaryCertificate) = GetCertificates(_environment, _configuration).GetAwaiter().GetResult();
 				idsvrBuilder.AddSigningCredential(ActiveCertificate);
-				//var cert = Path.Combine(_environment.ContentRootPath, "Certificates", "identityserver.pfx");
-				//idsvrBuilder.AddSigningCredential(new X509Certificate2(cert, "z2n+nUGMMqE<2a_j"));
-			}
+			//}
 
 			idsvrBuilder
 				.AddInMemoryApiScopes(inMemoryApiScopes)
+				.AddInMemoryApiResources(inMemoryApiResources)
 				.AddInMemoryClients(inMemoryClients);
 		}
 
