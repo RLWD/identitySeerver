@@ -25,7 +25,7 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
                     if (con.State == ConnectionState.Closed)
                         con.Open();
 
-                    string query = "SELECT TOP 1 UC.[Contact], U.[IsActive], U.[Password] FROM tblUser U INNER JOIN tblUserContact UC ON U.Id=UC.UserId " +
+                    string query = "SELECT TOP 1 UC.[Contact], U.[IsActive],U.[Id], U.[Password] FROM tblUser U INNER JOIN tblUserContact UC ON U.Id=UC.UserId " +
                                     "WHERE UC.Contact=@usrContact";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.CommandType = CommandType.Text;
@@ -45,7 +45,8 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
                                 {
                                     UserName = reader["Contact"].ToString(),
                                     Password = reader["Password"].ToString(),
-                                    IsActive = Convert.ToBoolean(reader["IsActive"].ToString())
+                                    IsActive = Convert.ToBoolean(reader["IsActive"].ToString()),
+                                    UserId = Convert.ToInt32(reader["Id"].ToString())
                                 };
                             }
                         }
@@ -63,7 +64,7 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
             }
         }
 
-        public async Task<UserClaims> GetUserByOtp(string phoneNumber, string otp)
+        public async Task<UserClaims> GetUserByOtp(string phoneNumber, string otp, int tokenExpirySeconds)
         {
             using (var con = new SqlConnection(_connectionString))
             {
@@ -73,13 +74,14 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
                         con.Open();
 
                     string query = "SELECT TOP 1 U.[Id], U.[Name],TV.PhoneNumber FROM tblUser U INNER JOIN tblTokenVerification TV ON U.Id=TV.UserId " +
-                                    "WHERE TV.PhoneNumber=@usrContact AND TV.TokenValue=@usrOtp";
+                                    "WHERE TV.PhoneNumber=@usrContact AND TV.TokenValue=@usrOtp AND TV.CreatedAt BETWEEN @expiryDate AND GETUTCDATE()";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.CommandType = CommandType.Text;
                     List<SqlParameter> parameters = new List<SqlParameter>
                     {
                         new SqlParameter("@usrContact", phoneNumber),
                         new SqlParameter("@usrOtp", otp),
+                        new SqlParameter("@expiryDate", DateTime.UtcNow.AddSeconds(-tokenExpirySeconds)),
                     };
                     cmd.Parameters.AddRange(parameters.ToArray());
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -95,9 +97,10 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
                                     PhoneNumber = reader["PhoneNumber"].ToString(),
                                     Name = reader["Name"].ToString()
                                 };
+                                return claim;
                             }
                         }
-                        return claim;
+                        return null;
                     }
                 }
                 catch (Exception ex)
@@ -158,6 +161,37 @@ namespace VDW.SalesApp.IdentityServer.Repository.Implementation
                     con.Close();
                 }
 
+            }
+        }
+
+        public void LogFailedAttempt(string userName, string failReason)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+
+                    string query = "INSERT INTO tblAuthHistory(PhoneNumber,FailReason) VALUES(@phone,@reason)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.CommandType = CommandType.Text;
+                    List<SqlParameter> parameters = new List<SqlParameter>
+                    {
+                        new SqlParameter("@phone", userName),
+                        new SqlParameter("@reason", failReason)
+                    };
+                    cmd.Parameters.AddRange(parameters.ToArray());
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
     }
