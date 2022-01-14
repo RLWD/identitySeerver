@@ -24,7 +24,7 @@ namespace VDW.SalesApp.IdentityServer.Services
             UserClaims claim;
             if (request.WorkFlow == Workflow.OTP_LOGIN)
             {
-                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 60);
+                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 180);
                 if (claim == null)
                 {
                     _userRepository.LogFailedAttempt(request.Username, "Expired OTP");

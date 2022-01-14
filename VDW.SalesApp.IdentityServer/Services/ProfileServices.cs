@@ -25,7 +25,7 @@ namespace VDW.SalesApp.IdentityServer.Services
             AuthenticationRequest request = GetAuthRequest(context.ValidatedRequest.Raw);
             UserClaims claim;
             if (request.WorkFlow == Workflow.OTP_LOGIN)
-                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 60);
+                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 180);
             else
                 claim = await _userRepository.GetUserByPassword(request.Username);
 
