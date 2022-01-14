@@ -1,6 +1,5 @@
 ﻿using IdentityModel;
 using IdentityServer4.Validation;
-using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Claims;
@@ -25,11 +24,11 @@ namespace VDW.SalesApp.IdentityServer.Services
             UserClaims claim;
             if (request.WorkFlow == Workflow.OTP_LOGIN)
             {
-                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 300);
+                claim = await _userRepository.GetUserByOtp(request.Username, request.OtpValue, 180);
                 if (claim == null)
                 {
                     _userRepository.LogFailedAttempt(request.Username, "Expired OTP");
-                    context.Result = new GrantValidationResult { IsError = true, Error = "Invalid OTP", ErrorDescription = "Expired OTP" };
+                    context.Result = new GrantValidationResult { IsError = true, Error = "INVALID_OTP", ErrorDescription = "Expired OTP" };
                 }
                 else
                 {
@@ -47,7 +46,7 @@ namespace VDW.SalesApp.IdentityServer.Services
                 if (user == null || user.UserName != context.UserName)
                 {
                     _userRepository.LogFailedAttempt(context.UserName, "User Does not exist");
-                    context.Result = new GrantValidationResult { IsError = true, Error = "Invalid credential", ErrorDescription = "User Does not exist" };
+                    context.Result = new GrantValidationResult { IsError = true, Error = "NO_USER", ErrorDescription = "User Does not exist" };
                 }
                 else
                 {
@@ -56,7 +55,7 @@ namespace VDW.SalesApp.IdentityServer.Services
                         if (!user.IsActive)
                         {
                             _userRepository.LogFailedAttempt(context.UserName, "Deactivated User or User is not Activated");
-                            context.Result = new GrantValidationResult { IsError = true, Error = "Invalid credential", ErrorDescription = "Deactivated User or User is not Activated" };
+                            context.Result = new GrantValidationResult { IsError = true, Error = "NOT_ACTIVE", ErrorDescription = "Deactivated User or User is not Activated" };
                         }
                         else
                         {
@@ -72,7 +71,7 @@ namespace VDW.SalesApp.IdentityServer.Services
                     else
                     {
                         _userRepository.LogFailedAttempt(context.UserName, "Wrong Password");
-                        context.Result = new GrantValidationResult { IsError = true, Error = "Invalid credential", ErrorDescription = "Unable to Verify the credential" };
+                        context.Result = new GrantValidationResult { IsError = true, Error = "INVALID_CREDENTIAL", ErrorDescription = "Unable to Verify the credential" };
                     }
                 }
             }
