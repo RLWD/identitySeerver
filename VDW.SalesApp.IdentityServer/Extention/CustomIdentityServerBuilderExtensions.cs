@@ -8,6 +8,7 @@ namespace VDW.SalesApp.IdentityServer.Extention
         public static IIdentityServerBuilder AddCustomUserStore(this IIdentityServerBuilder builder)
         {
             builder.AddResourceOwnerValidator<ResourceOwnerServices>();
+            builder.AddProfileService<ProfileServices>();
             return builder;
         }
     }
