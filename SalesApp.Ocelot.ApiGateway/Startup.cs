@@ -25,17 +25,6 @@ namespace SalesApp.Ocelot.ApiGateway
                 opt.RequireHttpsMetadata = false;
                 opt.SaveToken = true;
             });
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                 builder => builder
-                 .SetIsOriginAllowedToAllowWildcardSubdomains()
-                 .WithOrigins(GetOrigins())
-                 .AllowAnyMethod()
-                 .AllowAnyHeader()
-                 .AllowCredentials()
-                 .Build());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +34,6 @@ namespace SalesApp.Ocelot.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseOcelot().Wait();
             app.UseAuthentication();
@@ -56,16 +44,6 @@ namespace SalesApp.Ocelot.ApiGateway
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
-        }
-        public static string[] GetOrigins()
-        {
-            return new string[] {
-                "https://dev-salesapp-backoffice-ui.azurewebsites.net",
-                "https://dev-salesapp-api.azurewebsites.net",
-                "https://dev-salesapp-org.azurewebsites.net",
-                "http://localhost:4200",
-                "http://localhost:4201"
-            };
         }
     }
 }
