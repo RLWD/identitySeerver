@@ -28,11 +28,13 @@ namespace SalesApp.Ocelot.ApiGateway
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                 builder => builder.WithOrigins(GetOrigins())
+                 builder => builder
                  .SetIsOriginAllowedToAllowWildcardSubdomains()
+                 .WithOrigins(GetOrigins())
                  .AllowAnyMethod()
                  .AllowAnyHeader()
-                 .AllowCredentials());
+                 .AllowCredentials()
+                 .Build());
             });
         }
 
