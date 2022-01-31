@@ -6,26 +6,33 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesApp.Ocelot.ApiGateway
 {
     public class Startup
     {
+        readonly string AllowedSpecificOrigin = "_allowedOrigins";
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOcelot();
-            services.AddAuthentication(opt => {
+            services.AddAuthentication(opt =>
+            {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(opt=> {
+            }).AddJwtBearer(opt =>
+            {
                 opt.RequireHttpsMetadata = false;
                 opt.SaveToken = true;
+            });
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowedSpecificOrigin,
+                    builder =>
+                    {
+                        builder.WithOrigins("azurewebsites.net");
+                    });
             });
         }
 
@@ -36,7 +43,7 @@ namespace SalesApp.Ocelot.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(AllowedSpecificOrigin);
             app.UseRouting();
             app.UseOcelot().Wait();
             app.UseAuthentication();
