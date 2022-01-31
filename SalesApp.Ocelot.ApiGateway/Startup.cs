@@ -59,6 +59,8 @@ namespace SalesApp.Ocelot.ApiGateway
         {
             return new string[] {
                 "https://dev-salesapp-backoffice-ui.azurewebsites.net",
+                "https://dev-salesapp-api.azurewebsites.net",
+                "https://dev-salesapp-org.azurewebsites.net",
                 "http://localhost:4200",
                 "http://localhost:4201"
             };
