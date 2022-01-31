@@ -11,7 +11,6 @@ namespace SalesApp.Ocelot.ApiGateway
 {
     public class Startup
     {
-        readonly string AllowedSpecificOrigin = "_allowedOrigins";
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -44,7 +43,7 @@ namespace SalesApp.Ocelot.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(AllowedSpecificOrigin);
+            app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseOcelot().Wait();
             app.UseAuthentication();
