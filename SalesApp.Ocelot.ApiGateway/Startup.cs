@@ -28,11 +28,12 @@ namespace SalesApp.Ocelot.ApiGateway
             });
             services.AddCors(options =>
             {
-                options.AddPolicy(name: AllowedSpecificOrigin,
-                    builder =>
-                    {
-                        builder.WithOrigins("azurewebsites.net");
-                    });
+                options.AddPolicy("CorsPolicy",
+                 builder => builder.WithOrigins(GetOrigins())
+                 .SetIsOriginAllowedToAllowWildcardSubdomains()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader()
+                 .AllowCredentials());
             });
         }
 
@@ -54,6 +55,14 @@ namespace SalesApp.Ocelot.ApiGateway
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+        }
+        public static string[] GetOrigins()
+        {
+            return new string[] {
+                "https://dev-salesapp-backoffice-ui.azurewebsites.net",
+                "http://localhost:4200",
+                "http://localhost:4201"
+            };
         }
     }
 }
