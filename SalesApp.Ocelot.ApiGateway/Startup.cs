@@ -6,10 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesApp.Ocelot.ApiGateway
 {
@@ -20,10 +16,12 @@ namespace SalesApp.Ocelot.ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOcelot();
-            services.AddAuthentication(opt => {
+            services.AddAuthentication(opt =>
+            {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(opt=> {
+            }).AddJwtBearer(opt =>
+            {
                 opt.RequireHttpsMetadata = false;
                 opt.SaveToken = true;
             });
@@ -36,7 +34,6 @@ namespace SalesApp.Ocelot.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseRouting();
             app.UseOcelot().Wait();
             app.UseAuthentication();

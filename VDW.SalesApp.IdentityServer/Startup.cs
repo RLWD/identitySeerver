@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 using VDW.SalesApp.IdentityServer.Certificates;
 using VDW.SalesApp.IdentityServer.Extention;
 using VDW.SalesApp.IdentityServer.Models;
-using VDW.SalesApp.IdentityServer.Repository.Implementation;
-using VDW.SalesApp.IdentityServer.Repository.Interface;
-using VDW.SalesApp.IdentityServer.Services;
-
 namespace VDW.SalesApp.IdentityServer
 {
     public class Startup
@@ -28,7 +24,6 @@ namespace VDW.SalesApp.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IUserRepository>(provider => new UserRepository(_configuration.GetSection("ConnectionStrings").GetSection("SalesAppOrganizationDb").Value));
             var inMemoryApiScopes = _configuration.GetSection("ApiScopes").Get<List<ApiScopeConfig>>().Select(c => c.ToInMemoryApiScope());
             var inMemoryApiResources = _configuration.GetSection("ApiResources").Get<List<ApiResourceConfig>>().Select(c => c.ToInMemoryApiResource());
             var inMemoryClients = _configuration.GetSection("Clients").Get<List<ClientConfig>>().Select(c => c.ToInMemoryClient());
