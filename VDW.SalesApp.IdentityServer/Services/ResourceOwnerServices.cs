@@ -16,15 +16,16 @@ namespace VDW.SalesApp.IdentityServer.Services
             claimList.Add(new Claim("UserId", context.Request.Raw["UserId"]));
             claimList.Add(new Claim("RoleName", context.Request.Raw["RoleName"]));
             claimList.Add(new Claim("IsActive", context.Request.Raw["IsActive"]));
+            claimList.Add(new Claim("PermissionList", context.Request.Raw["rolePermissions"]));
 
             if (context.Request.Raw["Otp"] == Workflow.OTP_LOGIN.ToString())
             {
   
-                context.Result = new GrantValidationResult(context.Request.Raw["PhoneNumber"], OidcConstants.GrantTypes.Password, claimList, "local", new Dictionary<string, object>() { { "ForceChangeRequired", true } });
+                context.Result = new GrantValidationResult(context.Request.Raw["PhoneNumber"], OidcConstants.GrantTypes.Password, claimList, "local", new Dictionary<string, object>() { { "ForceChangeRequired", true }, { "PermissionList", context.Request.Raw["rolePermissions"] } });
             }
             else
             {
-                context.Result = new GrantValidationResult(context.Request.Raw["PhoneNumber"], OidcConstants.GrantTypes.Password, claimList, "local", new Dictionary<string, object>() { { "ForceChangeRequired", false } });
+                context.Result = new GrantValidationResult(context.Request.Raw["PhoneNumber"], OidcConstants.GrantTypes.Password, claimList, "local", new Dictionary<string, object>() { { "ForceChangeRequired", false },{ "PermissionList", context.Request.Raw["rolePermissions"] } });
             }
 
         }

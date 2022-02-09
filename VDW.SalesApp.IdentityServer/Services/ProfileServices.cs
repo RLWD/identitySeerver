@@ -16,8 +16,9 @@ namespace VDW.SalesApp.IdentityServer.Services
             claimList.Add(new Claim("PhoneNumber", context.ValidatedRequest.Raw["PhoneNumber"]));
             claimList.Add(new Claim("UserId", context.ValidatedRequest.Raw["UserId"]));
             claimList.Add(new Claim("RoleName", context.ValidatedRequest.Raw["RoleName"]));
-            claimList.Add(new Claim("RoleName", context.ValidatedRequest.Raw["IsActive"]));
+            claimList.Add(new Claim("IsActive", context.ValidatedRequest.Raw["IsActive"]));
             claimList.Add(new Claim("PermissionList", context.ValidatedRequest.Raw["rolePermissions"]));
+            context.IssuedClaims = claimList;
         }
 
         public async Task IsActiveAsync(IsActiveContext context)
