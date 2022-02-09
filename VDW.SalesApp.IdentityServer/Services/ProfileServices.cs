@@ -2,13 +2,9 @@
 
 using IdentityServer4.Models;
 using IdentityServer4.Services;
-using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using VDW.SalesApp.IdentityServer.Models;
-using VDW.SalesApp.IdentityServer.Models.Enum;
 
 namespace VDW.SalesApp.IdentityServer.Services
 {
@@ -21,7 +17,7 @@ namespace VDW.SalesApp.IdentityServer.Services
             claimList.Add(new Claim("UserId", context.ValidatedRequest.Raw["UserId"]));
             claimList.Add(new Claim("RoleName", context.ValidatedRequest.Raw["RoleName"]));
             claimList.Add(new Claim("RoleName", context.ValidatedRequest.Raw["IsActive"]));
-            context.IssuedClaims = claimList;
+            claimList.Add(new Claim("PermissionList", context.ValidatedRequest.Raw["rolePermissions"]));
         }
 
         public async Task IsActiveAsync(IsActiveContext context)
