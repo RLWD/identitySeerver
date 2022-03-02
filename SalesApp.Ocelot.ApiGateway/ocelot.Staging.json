@@ -1,0 +1,172 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/{version}/module/module-permission",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/o/module-permission",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/authenticate",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/authorize",
+			"UpstreamHttpMethod": [ "Post" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/check",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/check",
+			"UpstreamHttpMethod": [ "Post" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/profile",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/profile",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/otp/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/otp/{everything}",
+			"UpstreamHttpMethod": []
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/o/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/areas",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/areas/",
+			"UpstreamHttpMethod": [ "Post", "Put", "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/areas/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/areas/{everything}",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		//{
+		//  "DownstreamPathTemplate": "/api/{version}/positions",
+		//  "DownstreamScheme": "https",
+		//  "DownstreamHostAndPorts": [
+		//    {
+		//      "Host": "localhost",
+		//      "Port": 6001
+		//    }
+		//  ],
+		//  "UpstreamPathTemplate": "/api/{version}/s/positions/",
+		//  "UpstreamHttpMethod": [ "Post", "Put", "Get" ],
+		//  "AuthenticationOptions": {
+		//    "AuthenticationProvidderKey": "Bearer",
+		//    "AllowedScopes": []
+		//  }
+		//},
+		{
+			"DownstreamPathTemplate": "/api/{version}/positions/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 6001
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/positions/{everything}",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		}
+
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "https://localhost:6001"
+	}
+}
