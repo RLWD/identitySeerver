@@ -85,6 +85,22 @@
 			"UpstreamHttpMethod": []
 		},
 		{
+			"DownstreamPathTemplate": "/api/{version}/areas",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/areas",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
 			"DownstreamPathTemplate": "/api/{version}/areas/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
@@ -94,6 +110,22 @@
 				}
 			],
 			"UpstreamPathTemplate": "/api/{version}/s/areas/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/positions",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/positions",
 			"UpstreamHttpMethod": [],
 			"AuthenticationOptions": {
 				"AuthenticationProvidderKey": "Bearer",
