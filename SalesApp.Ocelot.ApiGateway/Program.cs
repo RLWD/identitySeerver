@@ -23,7 +23,8 @@ namespace SalesApp.Ocelot.ApiGateway
 						  var env = builderContext.HostingEnvironment;
 						  config.AddJsonFile("appsettings.json", true, true)
 								.AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true)
-								.AddJsonFile($"configuration.{env.EnvironmentName}.json")
+								.AddJsonFile($"configuration.json")
+								.AddJsonFile($"configuration.{env.EnvironmentName}.json", true, true)
 								.AddEnvironmentVariables();
 					  });
 				});
