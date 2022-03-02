@@ -21,10 +21,10 @@ namespace SalesApp.Ocelot.ApiGateway
 					  .ConfigureAppConfiguration((builderContext, config) =>
 					  {
 						  var env = builderContext.HostingEnvironment;
-						  config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-								.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
-								.AddOcelot(env);
-						  config.AddEnvironmentVariables();
+						  config.AddJsonFile("appsettings.json", true, true)
+								.AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true)
+								.AddJsonFile($"configuration.{env.EnvironmentName}.json")
+								.AddEnvironmentVariables();
 					  });
 				});
 	}
