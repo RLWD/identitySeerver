@@ -1,30 +1,33 @@
-﻿
-
-using IdentityServer4.Models;
+﻿using IdentityServer4.Models;
 using IdentityServer4.Services;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using VDW.SalesApp.IdentityServer.Models;
 
 namespace VDW.SalesApp.IdentityServer.Services
 {
-    public class ProfileServices : IProfileService
-    {
-        public async Task GetProfileDataAsync(ProfileDataRequestContext context)
-        {
-            List<Claim> claimList = new List<Claim>();
-            claimList.Add(new Claim("PhoneNumber", context.ValidatedRequest.Raw["PhoneNumber"]));
-            claimList.Add(new Claim("UserId", context.ValidatedRequest.Raw["UserId"]));
-            claimList.Add(new Claim("RoleName", context.ValidatedRequest.Raw["RoleName"]));
-            claimList.Add(new Claim("IsActive", context.ValidatedRequest.Raw["IsActive"]));
-            claimList.Add(new Claim("PermissionList", context.ValidatedRequest.Raw["rolePermissions"]));
-            context.IssuedClaims = claimList;
-        }
+	public class ProfileServices : IProfileService
+	{
+		public async Task GetProfileDataAsync(ProfileDataRequestContext context)
+		{
+			var claims = new List<Claim>
+			{
+				new Claim(UserClaimKeys.UserId, context.ValidatedRequest.Raw["UserId"]),
+				new Claim(UserClaimKeys.FirstName, context.ValidatedRequest.Raw["FirstName"]),
+				new Claim(UserClaimKeys.LastName, context.ValidatedRequest.Raw["LastName"]),
+				new Claim(UserClaimKeys.PhoneNumber, context.ValidatedRequest.Raw["PhoneNumber"]),
+				new Claim(UserClaimKeys.Email, context.ValidatedRequest.Raw["Email"]),
+				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
+				new Claim(UserClaimKeys.PermissionList, context.ValidatedRequest.Raw["RolePermissions"])
+			};
+			context.IssuedClaims = claims;
+		}
 
-        public async Task IsActiveAsync(IsActiveContext context)
-        {
-            var isActive = context.Subject.FindFirst("IsActive").Value;
-            context.IsActive = isActive.ToLowerInvariant()=="true";
-        }
-    }
+		public async Task IsActiveAsync(IsActiveContext context)
+		{
+			var isActive = context.Subject.FindFirst("IsActive").Value;
+			context.IsActive = isActive.ToLowerInvariant() == "true";
+		}
+	}
 }
