@@ -19,7 +19,8 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.PhoneNumber, context.ValidatedRequest.Raw["PhoneNumber"]),
 				new Claim(UserClaimKeys.Email, context.ValidatedRequest.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
-				new Claim(UserClaimKeys.PermissionList, context.ValidatedRequest.Raw["RolePermissions"])
+				new Claim(UserClaimKeys.PermissionList, context.ValidatedRequest.Raw["RolePermissions"]),
+				new Claim(UserClaimKeys.EmployeeCode, context.ValidatedRequest.Raw["EmployeeCode"])
 			};
 			context.IssuedClaims = claims;
 		}
