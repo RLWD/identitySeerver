@@ -9,6 +9,6 @@
         public const string Email = "Email";
         public const string IsActive = "IsActive";
         public const string PermissionList = "RolePermissions";
-        public const string EmployeeCode = "EmployeeCode";
+        public const string UserCode = "UserCode";
     }
 }

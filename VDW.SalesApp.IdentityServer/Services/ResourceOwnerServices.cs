@@ -20,7 +20,7 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.Email, context.Request.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.Request.Raw["IsActive"]),
 				new Claim(UserClaimKeys.PermissionList, context.Request.Raw["RolePermissions"]),
-				new Claim(UserClaimKeys.EmployeeCode, context.Request.Raw["EmployeeCode"])
+				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"])
 			};
 
 			context.Result = new GrantValidationResult(

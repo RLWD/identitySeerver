@@ -1,6 +1,54 @@
 {
 	"Routes": [
 		{
+			"DownstreamPathTemplate": "/api/{version}/registration",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "stg-salesapp-org.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/c/registration",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/registration/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "stg-salesapp-org.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/c/registration/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/registration/status/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "stg-salesapp-org.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/c/registration/status/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
 			"DownstreamPathTemplate": "/api/{version}/module/module-permission",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
