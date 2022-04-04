@@ -18,7 +18,8 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.LastName, context.ValidatedRequest.Raw["LastName"]),
 				new Claim(UserClaimKeys.PhoneNumber, context.ValidatedRequest.Raw["PhoneNumber"]),
 				new Claim(UserClaimKeys.Email, context.ValidatedRequest.Raw["Email"]),
-				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"])
+				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
+				new Claim(UserClaimKeys.UserCode, context.ValidatedRequest.Raw["UserCode"])
 			};
 			context.IssuedClaims = claims;
 		}

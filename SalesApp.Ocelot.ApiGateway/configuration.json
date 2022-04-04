@@ -163,6 +163,22 @@
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
 			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 44336
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/c/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		}
 	],
 	"GlobalConfiguration": {
