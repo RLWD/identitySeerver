@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDW.SalesApp.Common", "VDW.SalesApp.Common\VDW.SalesApp.Common.csproj", "{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDW.SalesApp.Common.Test", "VDW.SalesApp.Common.Test\VDW.SalesApp.Common.Test.csproj", "{D034EF8A-E5C5-4414-B984-94B3947724AF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDW.SalesApp.IdentityServer", "VDW.SalesApp.IdentityServer\VDW.SalesApp.IdentityServer.csproj", "{0DF812A9-65D2-48ED-AD32-5EE613B1631C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Ocelot.ApiGateway", "SalesApp.Ocelot.ApiGateway\SalesApp.Ocelot.ApiGateway.csproj", "{D9CAA5A2-40FA-432E-AB6D-138E6D6E0564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesApp.Ocelot.ApiGateway", "SalesApp.Ocelot.ApiGateway\SalesApp.Ocelot.ApiGateway.csproj", "{D9CAA5A2-40FA-432E-AB6D-138E6D6E0564}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16A98E04-D5F9-473A-9CBC-BA7BDDD9AD26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D034EF8A-E5C5-4414-B984-94B3947724AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DF812A9-65D2-48ED-AD32-5EE613B1631C}.Release|Any CPU.ActiveCfg = Release|Any CPU
