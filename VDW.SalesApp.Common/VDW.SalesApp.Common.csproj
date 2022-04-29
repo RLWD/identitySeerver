@@ -5,20 +5,15 @@
     <Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <Version>1.0.5</Version>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    <Version>1.0.6</Version>
     <PackageReleaseNotes>
 
-Vdw.SalesApp.Common Version 1.0.5
+Vdw.SalesApp.Common Version 1.0.6
 --------------------------------------------
-Adding Support of for redis cache 
-2022-04-12
--------------------------------------------------------------------
-Adding finctionalities to support blob storage
-----------------------------------------------------
-2021-12-18
-Added SmsSupport</PackageReleaseNotes>
+Fix support for Redis Remove Async
+2022-04-29</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
