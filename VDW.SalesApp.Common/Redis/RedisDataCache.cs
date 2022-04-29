@@ -37,7 +37,7 @@ namespace VDW.SalesApp.Common.Redis
             return value;
         }
 
-        public async Task<bool> RemoveAsync<T>(string key)
+        public async Task<bool> RemoveAsync(string key)
         {
             await _cache.RemoveAsync(key);
             return true;
