@@ -12,7 +12,7 @@ namespace VDW.SalesApp.Common.Salesforce
 {
     public class SalesforceProvider
     {
-        public SaleforceAuthorization GetAccessToken(string iss, string aud, string sub, Uri authUrl, string privateKeyFilePath)
+        public SaleforceAuthorization GetAccessToken(string iss, string aud, string sub, Uri authUrl, string privateKeyValue)
         {
             var header = new { alg = "RS256", typ = "JWT" };
             var expr = GetExpiryDate();
@@ -33,7 +33,7 @@ namespace VDW.SalesApp.Common.Salesforce
             var encodedHeader = Base64UrlEncoder.Encode(headerBytes);
             var encodedClaimSet = Base64UrlEncoder.Encode(claimsetBytes);
             var data = string.Concat(encodedHeader, ".", encodedClaimSet);
-            var signature = SignSHA256RSAAsync(data, privateKeyFilePath);
+            var signature = SignSHA256RSA(data, privateKeyValue);
             var bearerToken = string.Concat(data, ".", signature);
 
             var client = new RestClient(authUrl);
@@ -48,7 +48,7 @@ namespace VDW.SalesApp.Common.Salesforce
             return tokenResponse;
         }
 
-        private string SignSHA256RSAAsync(string itemToSign, string pemfileValue)
+        private string SignSHA256RSA(string itemToSign, string pemfileValue)
         {
             var bytes = Encoding.UTF8.GetBytes(itemToSign);
             var privateKeyBytes = Encoding.UTF8.GetBytes(pemfileValue);
