@@ -5,10 +5,14 @@
     <Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
-    <Version>1.0.7</Version>
-    <PackageReleaseNotes>
+    <AssemblyVersion>1.0.8.0</AssemblyVersion>
+    <FileVersion>1.0.8.0</FileVersion>
+    <Version>1.0.8</Version>
+    <PackageReleaseNotes>Vdw.SalesApp.Common Version 1.0.8
+--------------------------------------------
+9-6-2022
+Add ServiceBus PublishMessage()
+-----------------------------------------
 
 Vdw.SalesApp.Common Version 1.0.7
 --------------------------------------------
@@ -20,6 +24,7 @@ Fix support for Redis Remove Async
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.8.1" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.4" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.14.1" />
