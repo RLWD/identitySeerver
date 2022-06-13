@@ -5,10 +5,14 @@
     <Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
-    <AssemblyVersion>1.0.8.0</AssemblyVersion>
-    <FileVersion>1.0.8.0</FileVersion>
-    <Version>1.0.8</Version>
-    <PackageReleaseNotes>Vdw.SalesApp.Common Version 1.0.8
+    <AssemblyVersion>1.0.9.0</AssemblyVersion>
+    <FileVersion>1.0.9.0</FileVersion>
+    <Version>1.0.9</Version>
+    <PackageReleaseNotes>Vdw.SalesApp.Common Version 1.0.9
+--------------------------------------------
+Add new method for Redis to set with expiry
+
+Vdw.SalesApp.Common Version 1.0.8
 --------------------------------------------
 9-6-2022
 Add ServiceBus PublishMessage()
