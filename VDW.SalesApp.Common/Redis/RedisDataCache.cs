@@ -36,6 +36,18 @@ namespace VDW.SalesApp.Common.Redis
 
             return value;
         }
+        public async Task<T> SetAsync<T>(string key, T value, int expiredInMinutes, int slidingExpirationInMinutes)
+        {
+            var options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(expiredInMinutes),
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(expiredInMinutes),
+                SlidingExpiration = TimeSpan.FromMinutes(slidingExpirationInMinutes)
+            };
+            await _cache.SetStringAsync(key, JsonConvert.SerializeObject(value), options);
+
+            return value;
+        }
 
         public async Task<bool> RemoveAsync(string key)
         {
