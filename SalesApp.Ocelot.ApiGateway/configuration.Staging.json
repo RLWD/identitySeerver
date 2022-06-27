@@ -85,70 +85,6 @@
 			"UpstreamHttpMethod": []
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/areas",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "stg-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/s/areas",
-			"UpstreamHttpMethod": [],
-			"AuthenticationOptions": {
-				"AuthenticationProvidderKey": "Bearer",
-				"AllowedScopes": []
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/api/{version}/areas/{everything}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "stg-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/s/areas/{everything}",
-			"UpstreamHttpMethod": [],
-			"AuthenticationOptions": {
-				"AuthenticationProvidderKey": "Bearer",
-				"AllowedScopes": []
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/api/{version}/positions",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "stg-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/s/positions",
-			"UpstreamHttpMethod": [],
-			"AuthenticationOptions": {
-				"AuthenticationProvidderKey": "Bearer",
-				"AllowedScopes": []
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/api/{version}/positions/{everything}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "stg-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/s/positions/{everything}",
-			"UpstreamHttpMethod": [],
-			"AuthenticationOptions": {
-				"AuthenticationProvidderKey": "Bearer",
-				"AllowedScopes": []
-			}
-		},
-		{
 			"DownstreamPathTemplate": "/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
@@ -174,6 +110,38 @@
 				}
 			],
 			"UpstreamPathTemplate": "/api/{version}/c/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "stg-salesapp-custom-setting.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "stg-salesapp-product-catalogue.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/p/{everything}",
 			"UpstreamHttpMethod": [],
 			"AuthenticationOptions": {
 				"AuthenticationProvidderKey": "Bearer",
