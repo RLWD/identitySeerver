@@ -15,17 +15,17 @@ namespace VDW.SalesApp.Common.Redis
             _options = new RedisCacheOptions { Configuration = connectionString };
             _cache = new RedisCache(_options);
        }
-        public async Task<T> GetAsync<T>(string key)
+        public async Task<T> GetAsync<T>(string key) where T : class
         {
             var value = await _cache.GetStringAsync(key);
             if (value != null)
             {
                 return JsonConvert.DeserializeObject<T>(value);
             }
-            return default;
+            return null;
         }
 
-        public async Task<T> SetAsync<T>(string key,T value)
+        public async Task<T> SetAsync<T>(string key,T value) 
         {
             var options = new DistributedCacheEntryOptions
             {
