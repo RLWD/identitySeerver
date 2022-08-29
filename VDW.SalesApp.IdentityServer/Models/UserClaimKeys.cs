@@ -3,8 +3,8 @@
 	public class UserClaimKeys
     {
         public const string UserId = "UserId";
-        public const string FirstName = "FirstName";
-        public const string LastName = "LastName";
+        public const string EnglishName = "EnglishName";
+        public const string ChineseName = "ChineseName";
         public const string PhoneNumber = "PhoneNumber";
         public const string Email = "Email";
         public const string IsActive = "IsActive";
