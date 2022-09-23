@@ -1,5 +1,6 @@
 ﻿using IdentityServer4.Models;
 using IdentityServer4.Services;
+using IdentityServer4.Stores.Serialization;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -21,7 +22,11 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
 				new Claim(UserClaimKeys.UserCode, context.ValidatedRequest.Raw["UserCode"])
 			};
-			context.IssuedClaims = claims;
+            if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerId"]))
+                claims.Add(new Claim(UserClaimKeys.CustomerId, context.ValidatedRequest.Raw["CustomerId"]));
+            if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["Wechat"]))
+                claims.Add(new Claim(UserClaimKeys.WechatPermission, context.ValidatedRequest.Raw["Wechat"]));
+            context.IssuedClaims = claims;
 		}
 
 		public async Task IsActiveAsync(IsActiveContext context)

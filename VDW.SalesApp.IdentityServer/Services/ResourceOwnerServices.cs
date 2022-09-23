@@ -22,9 +22,9 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"]),
             };
 			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerId"]))
-				claimList.Add(new Claim(UserClaimKeys.UserCode, context.Request.Raw["CustomerId"]));
+				claimList.Add(new Claim(UserClaimKeys.CustomerId, context.Request.Raw["CustomerId"]));
             if (!string.IsNullOrEmpty(context.Request.Raw["Wechat"]))
-                claimList.Add(new Claim(UserClaimKeys.UserCode, context.Request.Raw["Wechat"]));
+                claimList.Add(new Claim(UserClaimKeys.WechatPermission, context.Request.Raw["Wechat"]));
 
             context.Result = new GrantValidationResult(
 				subject: context.Request.Raw["PhoneNumber"],
