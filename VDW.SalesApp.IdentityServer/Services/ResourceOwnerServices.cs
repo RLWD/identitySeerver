@@ -19,13 +19,18 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.PhoneNumber, context.Request.Raw["PhoneNumber"]),
 				new Claim(UserClaimKeys.Email, context.Request.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.Request.Raw["IsActive"]),
-				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"])
-			};
+				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"]),
+            };
+			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerId"]))
+				claimList.Add(new Claim(UserClaimKeys.UserCode, context.Request.Raw["CustomerId"]));
+            if (!string.IsNullOrEmpty(context.Request.Raw["Wechat"]))
+                claimList.Add(new Claim(UserClaimKeys.UserCode, context.Request.Raw["Wechat"]));
 
-			context.Result = new GrantValidationResult(
+            context.Result = new GrantValidationResult(
 				subject: context.Request.Raw["PhoneNumber"],
 				authenticationMethod: OidcConstants.GrantTypes.Password,
 				claims: claimList);
+			
 		}
 	}
 }
