@@ -14,7 +14,7 @@ namespace VDW.SalesApp.Common.Redis
         public RedisDataCache(string connectionString) {
             _options = new RedisCacheOptions { Configuration = connectionString };
             _cache = new RedisCache(_options);
-       }
+        }
         public async Task<T> GetAsync<T>(string key) where T : class
         {
             var value = await _cache.GetStringAsync(key);
@@ -25,7 +25,7 @@ namespace VDW.SalesApp.Common.Redis
             return null;
         }
 
-        public async Task<T> SetAsync<T>(string key,T value) 
+        public async Task<T> SetAsync<T>(string key,T value)
         {
             var options = new DistributedCacheEntryOptions
             {
@@ -55,9 +55,5 @@ namespace VDW.SalesApp.Common.Redis
             return true;
         }
 
-        public bool TestAsync(string key)
-        {
-            return true;
-        }
     }
 }

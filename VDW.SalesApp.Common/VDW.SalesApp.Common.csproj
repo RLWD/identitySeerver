@@ -1,28 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
-    <AssemblyVersion>1.0.11.0</AssemblyVersion>
-    <FileVersion>1.0.11.0</FileVersion>
-    <Version>1.0.11</Version>
-    <PackageReleaseNotes>
-		Vdw.SalesApp.Common Version 1.0.11
-		__________________________________
-		Testing</PackageReleaseNotes>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
+		<AssemblyVersion>1.0.10.0</AssemblyVersion>
+		<FileVersion>1.0.10.0</FileVersion>
+		<Version>1.0.10</Version>
+		<PackageReleaseNotes>
+			Vdw.SalesApp.Common Version 1.0.10
+			__________________________________
+			Return null when redis is empty
+		</PackageReleaseNotes>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.8.1" />
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.4" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.14.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PemUtils" Version="3.0.0.82" />
-    <PackageReference Include="RestSharp" Version="106.13.0" />
-    <PackageReference Include="TencentCloudSDK" Version="3.0.428" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.8.1" />
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.4" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.14.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="PemUtils" Version="3.0.0.82" />
+		<PackageReference Include="RestSharp" Version="106.13.0" />
+		<PackageReference Include="TencentCloudSDK" Version="3.0.428" />
+	</ItemGroup>
 
 </Project>
