@@ -5,13 +5,13 @@
 		<Copyright>Copyright ©2021 Vandewiele Software Solution Malaysia</Copyright>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<Description>This is a nugget package that contain common fuctionalities that are shared across microservices</Description>
-		<AssemblyVersion>1.0.10.0</AssemblyVersion>
-		<FileVersion>1.0.10.0</FileVersion>
-		<Version>1.0.10</Version>
+		<AssemblyVersion>1.0.12.0</AssemblyVersion>
+		<FileVersion>1.0.12.0</FileVersion>
+		<Version>1.0.12</Version>
 		<PackageReleaseNotes>
-			Vdw.SalesApp.Common Version 1.0.10
+			Vdw.SalesApp.Common Version 1.0.12
 			__________________________________
-			Return null when redis is empty
+			Remove uncessary code
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
