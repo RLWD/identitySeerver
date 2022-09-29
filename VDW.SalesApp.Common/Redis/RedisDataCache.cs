@@ -55,5 +55,9 @@ namespace VDW.SalesApp.Common.Redis
             return true;
         }
 
+        public bool TestAsync(string key)
+        {
+            return true;
+        }
     }
 }
