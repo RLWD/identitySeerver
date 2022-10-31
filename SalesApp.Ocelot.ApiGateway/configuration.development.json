@@ -179,6 +179,22 @@
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
 			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "dev-salesapp-order.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/od/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		}
 	],
 	"GlobalConfiguration": {
