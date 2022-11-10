@@ -23,6 +23,8 @@ namespace VDW.SalesApp.IdentityServer.Services
             };
 			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerId"]))
 				claimList.Add(new Claim(UserClaimKeys.CustomerId, context.Request.Raw["CustomerId"]));
+            if (!string.IsNullOrEmpty(context.Request.Raw["WechatUserId"]))
+                claimList.Add(new Claim(UserClaimKeys.WechatUserId, context.Request.Raw["WechatUserId"]));
             if (!string.IsNullOrEmpty(context.Request.Raw["Wechat"]))
                 claimList.Add(new Claim(UserClaimKeys.WechatPermission, context.Request.Raw["Wechat"]));
 
