@@ -1,0 +1,203 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/{version}/module/module-permission",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/o/module-permission",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/authenticate",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/authorize",
+			"UpstreamHttpMethod": [ "Post" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/check",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/check",
+			"UpstreamHttpMethod": [ "Post" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/profile",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/profile",
+			"UpstreamHttpMethod": [ "Get" ],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/account/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/account/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/otp/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/a/otp/{everything}",
+			"UpstreamHttpMethod": []
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "org.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/o/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "customer.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/c/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "settings.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/s/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "catalogue.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/p/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "sales.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/sl/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "message.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/m/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "order-salesappasia-prd.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/od/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		}
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "https://api.salesappasia.com"
+	}
+}
