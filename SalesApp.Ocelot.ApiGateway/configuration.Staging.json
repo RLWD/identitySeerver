@@ -201,7 +201,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "stg-salesapp-order.azurewebsites.net",
+					"Host": "stg-payment.salesappasia.com",
 					"Port": 443
 				}
 			],

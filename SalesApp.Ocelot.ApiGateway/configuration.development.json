@@ -201,7 +201,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-order.azurewebsites.net",
+					"Host": "dev-payment.salesappasia.com",
 					"Port": 443
 				}
 			],

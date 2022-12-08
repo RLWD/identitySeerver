@@ -201,7 +201,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "order-salesappasia-prd.azurewebsites.net",
+					"Host": "payment.salesappasia.com",
 					"Port": 443
 				}
 			],
