@@ -3,12 +3,12 @@ version: '3.8'
 services:
   vdw.salesapp.identityserver:
     environment:
-      ASPNETCORE_ENVIRONMENT: ${environment}
-      AZURE_CLIENT_ID: ${clientId}
-      AZURE_TENANT_ID: ${tenantId}
-      AZURE_CLIENT_SECRET: ${secret}
-      ASPNETCORE_URLS: https://+:443
-      ASPNETCORE_HTTPS_PORT: 5001
+      - ASPNETCORE_ENVIRONMENT=${Env}
+      - AZURE_CLIENT_ID=${ClientId}
+      - AZURE_TENANT_ID=${TenantId}
+      - AZURE_CLIENT_SECRET=${Secret}
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_HTTPS_PORT=5001
     ports:
       - "5001:443"
     volumes:
@@ -16,9 +16,10 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
   salesapp.ocelot.apigateway:
     environment:
-      ASPNETCORE_ENVIRONMENT: ${environment}
-      ASPNETCORE_URLS: https://+:443
-      ASPNETCORE_HTTPS_PORT: 5002
+      - ASPNETCORE_ENVIRONMENT=${Env}
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_HTTPS_PORT=5002
+
     ports:
       - "5002:443"
     volumes:
