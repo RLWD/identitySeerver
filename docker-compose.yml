@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  vdw.salesapp.identityserver:
+    image: ${DOCKER_REGISTRY-}vdwsalesappidentityserver
+    build:
+      context: .
+      dockerfile: VDW.SalesApp.IdentityServer/Dockerfile
+
+  salesapp.ocelot.apigateway:
+    image: ${DOCKER_REGISTRY-}salesappocelotapigateway
+    build:
+      context: .
+      dockerfile: SalesApp.Ocelot.ApiGateway/Dockerfile
+

@@ -1,4 +1,5 @@
-﻿using Azure.Identity;
+﻿using Azure.Core;
+using Azure.Identity;
 using Azure.Security.KeyVault.Certificates;
 using Azure.Security.KeyVault.Secrets;
 using System;
@@ -23,7 +24,6 @@ namespace VDW.SalesApp.IdentityServer.Certificates
 			_certificateName = certificateName;
 
 			var credential = new DefaultAzureCredential();
-
 			_secretClient = new SecretClient(vaultUri: new Uri(endpoint), credential);
 			_certificateClient = new CertificateClient(vaultUri: new Uri(endpoint), credential);
 		}
