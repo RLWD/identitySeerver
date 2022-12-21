@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-server-deployment
+  labels:
+    app: IdentityServer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: IdentityServer
+  template:
+    metadata:
+      labels:
+        app: IdentityServer
+    spec:
+      containers:
+      - name: vdwsalesappidentityserver
+        image: acrsalesappasiadev.azurecr.io/vdwsalesappidentityserver:latest
+        ports:
+        - containerPort: 5001

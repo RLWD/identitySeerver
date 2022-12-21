@@ -11,6 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesApp.Ocelot.ApiGateway"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{18FD44C7-A715-4EBD-9D07-D58B55D69E78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8sconfig", "k8sconfig", "{054AC142-55BC-4585-B3F3-763593106BC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{8F45E9FF-6D2C-483F-B505-5FD7D7CD6A70}"
+	ProjectSection(SolutionItems) = preProject
+		identityserver.yaml = identityserver.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{804BFA49-2807-42DB-A51A-63DFBE48A721}"
+	ProjectSection(SolutionItems) = preProject
+		identityServer-Service.yml = identityServer-Service.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +48,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F45E9FF-6D2C-483F-B505-5FD7D7CD6A70} = {054AC142-55BC-4585-B3F3-763593106BC8}
+		{804BFA49-2807-42DB-A51A-63DFBE48A721} = {054AC142-55BC-4585-B3F3-763593106BC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3152826E-8927-4DC6-B6B1-318722766D51}
