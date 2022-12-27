@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: identityserver-configmap-dev
+data:
+    env: Development
+    clientId: d22dd930-3b46-42ee-948e-e268486df511 
+    tenantId: e16e8dac-e431-416b-8924-39f5a990569d
+    clentSecret: Jwn8Q~ZkBivPLZ54ObytGJfsUwZmfF9SNTXgjbtj

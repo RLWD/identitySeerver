@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: salesappAsiaKubeDev-rg
   name: identityserver-service
 spec:
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 80
+    protocol: TCP
     targetPort: 5001
+  loadBalancerIP: 4.231.223.72
+  type: LoadBalancer
   selector:
     app: IdentityServer
-  type: LoadBalancer
