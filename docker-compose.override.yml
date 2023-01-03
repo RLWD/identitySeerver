@@ -4,13 +4,6 @@ services:
   vdw.salesapp.identityserver:
     environment:
       - ASPNETCORE_URLS=https://+:443
-      - ASPNETCORE_HTTPS_PORT=5001
-    ports:
-      - "5001:443"
   salesapp.ocelot.apigateway:
     environment:
       - ASPNETCORE_URLS=https://+:443
-      - ASPNETCORE_HTTPS_PORT=5002
-
-    ports:
-      - "5002:443"
