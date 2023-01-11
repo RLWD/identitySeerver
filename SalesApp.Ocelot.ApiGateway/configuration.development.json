@@ -211,6 +211,22 @@
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
 			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "dev-cart.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/ca/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		}
 	],
 	"GlobalConfiguration": {
