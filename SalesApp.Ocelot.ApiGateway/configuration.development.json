@@ -1,27 +1,11 @@
 {
 	"Routes": [
 		{
-			"DownstreamPathTemplate": "/api/{version}/module/module-permission",
+			"DownstreamPathTemplate": "/org/api/{version}/account/authenticate",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/o/module-permission",
-			"UpstreamHttpMethod": [ "Get" ],
-			"AuthenticationOptions": {
-				"AuthenticationProvidderKey": "Bearer",
-				"AllowedScopes": []
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/api/{version}/account/authenticate",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -29,23 +13,11 @@
 			"UpstreamHttpMethod": [ "Post" ]
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/account/check",
+			"DownstreamPathTemplate": "/org/api/{version}/account/profile",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/api/{version}/a/account/check",
-			"UpstreamHttpMethod": [ "Post" ]
-		},
-		{
-			"DownstreamPathTemplate": "/api/{version}/account/profile",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -57,11 +29,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/account/{everything}",
+			"DownstreamPathTemplate": "/org/api/{version}/account/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -73,11 +45,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/otp/{everything}",
+			"DownstreamPathTemplate": "/org/api/{version}/otp/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -85,11 +57,11 @@
 			"UpstreamHttpMethod": []
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/org/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -101,11 +73,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/customer/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-customer.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -117,11 +89,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/settings/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-custom-setting.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -133,7 +105,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/product/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -197,11 +169,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/payment/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-payment.salesappasia.com",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -213,11 +185,11 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/cart/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-cart.salesappasia.com",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -230,6 +202,6 @@
 		}
 	],
 	"GlobalConfiguration": {
-		"BaseUrl": "https://dev-salesapp-org.azurewebsites.net"
+		"BaseUrl": "https://dev-proxy.salesappasia.com"
 	}
 }
