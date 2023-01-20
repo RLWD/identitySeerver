@@ -169,7 +169,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/pay/api/{version}/{everything}",
+			"DownstreamPathTemplate": "/payment/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
