@@ -109,7 +109,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-product-catalogue.azurewebsites.net",
+					"Host": "dev-proxy.salesappasia.com",
 					"Port": 443
 				}
 			],
