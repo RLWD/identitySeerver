@@ -21,7 +21,8 @@ namespace VDW.SalesApp.IdentityServer.Models
                 AllowOfflineAccess = true,
                 ClientSecrets = ClientSecrets.Select(s => { return new Secret(s.Sha256()); }).ToList(),
                 AllowedScopes = Scopes,
-                RefreshTokenExpiration = TokenExpiration.Sliding
+                RefreshTokenExpiration = TokenExpiration.Sliding,
+                AccessTokenLifetime=43200
             };
         }
     }
