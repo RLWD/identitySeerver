@@ -27,8 +27,10 @@ namespace VDW.SalesApp.IdentityServer.Services
                 claimList.Add(new Claim(UserClaimKeys.WechatUserId, context.Request.Raw["WechatUserId"]));
             if (!string.IsNullOrEmpty(context.Request.Raw["Wechat"]))
                 claimList.Add(new Claim(UserClaimKeys.WechatPermission, context.Request.Raw["Wechat"]));
+			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerUserId"]))
+				claimList.Add(new Claim(UserClaimKeys.CustomerUserId, context.Request.Raw["CustomerUserId"]));
 
-            context.Result = new GrantValidationResult(
+			context.Result = new GrantValidationResult(
 				subject: context.Request.Raw["PhoneNumber"],
 				authenticationMethod: OidcConstants.GrantTypes.Password,
 				claims: claimList);
