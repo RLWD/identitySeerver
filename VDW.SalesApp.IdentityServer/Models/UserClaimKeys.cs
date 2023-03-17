@@ -13,5 +13,6 @@
         public const string CustomerId = "CustomerId";
         public const string WechatPermission = "Wechat";
         public const string WechatUserId = "WechatUserId";
+        public const string CustomerUserId = "CustomerUserId";
     }
 }

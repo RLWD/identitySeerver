@@ -195,6 +195,38 @@
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
 			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "test-salesapp-payment.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/py/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/{version}/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "test-salesapp-cart.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/{version}/ca/{everything}",
+			"UpstreamHttpMethod": [],
+			"AuthenticationOptions": {
+				"AuthenticationProvidderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		}
 	],
 	"GlobalConfiguration": {

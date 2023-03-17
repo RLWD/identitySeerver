@@ -28,7 +28,9 @@ namespace VDW.SalesApp.IdentityServer.Services
                 claims.Add(new Claim(UserClaimKeys.WechatUserId, context.ValidatedRequest.Raw["WechatUserId"]));
             if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["Wechat"]))
                 claims.Add(new Claim(UserClaimKeys.WechatPermission, context.ValidatedRequest.Raw["Wechat"]));
-            context.IssuedClaims = claims;
+			if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerUserId"]))
+				claims.Add(new Claim(UserClaimKeys.CustomerUserId, context.ValidatedRequest.Raw["CustomerUserId"]));
+			context.IssuedClaims = claims;
 		}
 
 		public async Task IsActiveAsync(IsActiveContext context)

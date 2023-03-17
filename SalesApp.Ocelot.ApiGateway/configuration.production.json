@@ -5,7 +5,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -21,7 +21,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -33,7 +33,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -45,7 +45,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -61,7 +61,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -77,7 +77,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -89,7 +89,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-org.azurewebsites.net",
+					"Host": "org.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -105,7 +105,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-customer.azurewebsites.net",
+					"Host": "customer.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -121,7 +121,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-custom-setting.azurewebsites.net",
+					"Host": "settings.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -137,7 +137,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-product-catalogue.azurewebsites.net",
+					"Host": "catalogue.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -153,7 +153,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-sales.azurewebsites.net",
+					"Host": "sales.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -169,7 +169,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-message.azurewebsites.net",
+					"Host": "message.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -185,7 +185,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-salesapp-order.azurewebsites.net",
+					"Host": "order-salesappasia-prd.azurewebsites.net",
 					"Port": 443
 				}
 			],
@@ -201,7 +201,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-payment.salesappasia.com",
+					"Host": "payment.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -217,7 +217,7 @@
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "dev-cart.salesappasia.com",
+					"Host": "cart.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -230,6 +230,6 @@
 		}
 	],
 	"GlobalConfiguration": {
-		"BaseUrl": "https://dev-salesapp-org.azurewebsites.net"
+		"BaseUrl": "https://api.salesappasia.com"
 	}
 }
