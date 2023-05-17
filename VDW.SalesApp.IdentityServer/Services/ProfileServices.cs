@@ -22,8 +22,8 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
 				new Claim(UserClaimKeys.UserCode, context.ValidatedRequest.Raw["UserCode"])
 			};
-            if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerId"]))
-                claims.Add(new Claim(UserClaimKeys.CustomerId, context.ValidatedRequest.Raw["CustomerId"]));
+            if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerUserRelationshipHash"]))
+                claims.Add(new Claim(UserClaimKeys.CustomerUserRelationshipHash, context.ValidatedRequest.Raw["CustomerUserRelationshipHash"]));
             if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["WechatUserId"]))
                 claims.Add(new Claim(UserClaimKeys.WechatUserId, context.ValidatedRequest.Raw["WechatUserId"]));
             if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["Wechat"]))
