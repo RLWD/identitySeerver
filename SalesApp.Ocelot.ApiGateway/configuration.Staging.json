@@ -174,7 +174,12 @@
 				}
 			],
 			"UpstreamPathTemplate": "/api/v1/m/notificationHub/",
-			"UpstreamHttpMethod": []
+			"UpstreamHttpMethod": [],
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
+			}
 		},
 		{
 			"DownstreamPathTemplate": "/notificationHub/{everything}",
@@ -186,7 +191,12 @@
 				}
 			],
 			"UpstreamPathTemplate": "/api/v1/m/notificationHub/{everything}",
-			"UpstreamHttpMethod": []
+			"UpstreamHttpMethod": [],
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
+			}
 		},
 		{
 			"DownstreamPathTemplate": "/api/{version}/{everything}",
@@ -202,6 +212,11 @@
 			"AuthenticationOptions": {
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
+			},
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
 			}
 		},
 		{
