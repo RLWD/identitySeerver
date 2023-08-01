@@ -10,7 +10,7 @@
         public const string IsActive = "IsActive";
         public const string PermissionList = "RolePermissions";
         public const string UserCode = "UserCode";
-        public const string CustomerId = "CustomerId";
+        public const string CustomerUserRelationshipHash = "CustomerUserRelationshipHash";
         public const string WechatPermission = "Wechat";
         public const string WechatUserId = "WechatUserId";
         public const string CustomerUserId = "CustomerUserId";
