@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>授权登录</title>
+	<style>
+		.bind {
+			width: 95%;
+			height: 40px;
+			color: #fff;
+			background: #3291F8;
+			margin-top: 30px;
+			border-radius: 40px;
+			line-height: 40px;
+			border: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<div style="text-align: center;margin: 200px auto 0;">
+			<button class="bind" @click="login">微信授权登录</button>
+		</div>
+	</div>
+	<script src="./vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data() {
+				return {
+					code: ''
+				}
+			},
+			methods: {
+				login() {
+					// if (localStorage.getItem('openid') &&
+					// 		localStorage.getItem('openid') != "undefined") {
+					// 		return false
+					// 	}
+					var local = 'https://salesapp.vandewiele.com.cn/api/v1/m/wechat-handshake'; // 获取页面url
+					// var local = 'window.location.href'
+					var appid = 'wx6f988741e907d4af';
+					this.code = this.getUrlCode().code; // 截取code
+					console.log('code---------', this.code)
+					// this.course_id = this.$route.params.courseId;
+					// this.order_no = this.$route.params.orderno;
+					if (this.code == null || this.code === '') {
+						// 没有code去拿code;
+
+						let oUrl = encodeURIComponent(window.location.href);
+						window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid +
+							`&redirect_uri=https://salesapp.vandewiele.com.cn/api/v1/m/wechat-handshake&response_type=code&scope=snsapi_userinfo&state=` +
+							oUrl;
+						throw 'stop';
+
+						alert('授权成功')
+
+						// window.location.href =
+						// 	`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${encodeURIComponent(local)}&response_type=code&scope=snsapi_base&state=123#wechat_redirect`
+					} else {
+						// this.getOpenid()
+					};
+				},
+				getUrlCode() {
+					var url = location.search
+					var theRequest = new Object()
+					if (url.indexOf("?") != -1) {
+						var str = url.substr(1)
+						var strs = str.split("&")
+						for (var i = 0; i < strs.length; i++) {
+							theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1])
+						}
+					}
+					return theRequest
+				},
+
+			}
+		})
+	</script>
+</body>
+
+</html>

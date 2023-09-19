@@ -165,11 +165,45 @@
 			}
 		},
 		{
+			"DownstreamPathTemplate": "/notificationHub/",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "notification.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/v1/m/notificationHub/",
+			"UpstreamHttpMethod": [],
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/notificationHub/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "notification.salesappasia.com",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/api/v1/m/notificationHub/{everything}",
+			"UpstreamHttpMethod": [],
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
+			}
+		},
+		{
 			"DownstreamPathTemplate": "/api/{version}/{everything}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
-					"Host": "message.salesappasia.com",
+					"Host": "notification.salesappasia.com",
 					"Port": 443
 				}
 			],
@@ -178,6 +212,11 @@
 			"AuthenticationOptions": {
 				"AuthenticationProvidderKey": "Bearer",
 				"AllowedScopes": []
+			},
+			"QoSOptions": {
+				"TimeoutValue": 86400000,
+				"ExceptionsAllowedBeforeBreaking": 3,
+				"DurationOfBreak": 0
 			}
 		},
 		{
