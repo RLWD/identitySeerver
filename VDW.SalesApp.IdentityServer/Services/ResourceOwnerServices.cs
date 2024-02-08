@@ -20,6 +20,7 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.Email, context.Request.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.Request.Raw["IsActive"]),
 				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"]),
+                new Claim(UserClaimKeys.UserPermissions, context.Request.Raw["UserPermissions"])
             };
 			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerUserRelationshipHash"]))
 				claimList.Add(new Claim(UserClaimKeys.CustomerUserRelationshipHash, context.Request.Raw["CustomerUserRelationshipHash"]));
