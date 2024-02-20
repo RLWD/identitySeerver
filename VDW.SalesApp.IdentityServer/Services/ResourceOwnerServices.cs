@@ -19,8 +19,7 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.PhoneNumber, context.Request.Raw["PhoneNumber"]),
 				new Claim(UserClaimKeys.Email, context.Request.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.Request.Raw["IsActive"]),
-				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"]),
-                new Claim(UserClaimKeys.UserPermissions, context.Request.Raw["UserPermissions"])
+				new Claim(UserClaimKeys.UserCode, context.Request.Raw["UserCode"])
             };
 			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerUserRelationshipHash"]))
 				claimList.Add(new Claim(UserClaimKeys.CustomerUserRelationshipHash, context.Request.Raw["CustomerUserRelationshipHash"]));
@@ -30,6 +29,8 @@ namespace VDW.SalesApp.IdentityServer.Services
                 claimList.Add(new Claim(UserClaimKeys.WechatPermission, context.Request.Raw["Wechat"]));
 			if (!string.IsNullOrEmpty(context.Request.Raw["CustomerUserId"]))
 				claimList.Add(new Claim(UserClaimKeys.CustomerUserId, context.Request.Raw["CustomerUserId"]));
+			if (!string.IsNullOrEmpty(context.Request.Raw["UserPermissions"]))
+				claimList.Add(new Claim(UserClaimKeys.CustomerUserId, context.Request.Raw["UserPermissions"]));
 
 			context.Result = new GrantValidationResult(
 				subject: context.Request.Raw["PhoneNumber"],

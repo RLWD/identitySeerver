@@ -20,8 +20,7 @@ namespace VDW.SalesApp.IdentityServer.Services
 				new Claim(UserClaimKeys.PhoneNumber, context.ValidatedRequest.Raw["PhoneNumber"]),
 				new Claim(UserClaimKeys.Email, context.ValidatedRequest.Raw["Email"]),
 				new Claim(UserClaimKeys.IsActive, context.ValidatedRequest.Raw["IsActive"]),
-				new Claim(UserClaimKeys.UserCode, context.ValidatedRequest.Raw["UserCode"]),
-                new Claim(UserClaimKeys.UserPermissions, context.ValidatedRequest.Raw["UserPermissions"])
+				new Claim(UserClaimKeys.UserCode, context.ValidatedRequest.Raw["UserCode"])
             };
             if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerUserRelationshipHash"]))
                 claims.Add(new Claim(UserClaimKeys.CustomerUserRelationshipHash, context.ValidatedRequest.Raw["CustomerUserRelationshipHash"]));
@@ -31,6 +30,8 @@ namespace VDW.SalesApp.IdentityServer.Services
                 claims.Add(new Claim(UserClaimKeys.WechatPermission, context.ValidatedRequest.Raw["Wechat"]));
 			if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["CustomerUserId"]))
 				claims.Add(new Claim(UserClaimKeys.CustomerUserId, context.ValidatedRequest.Raw["CustomerUserId"]));
+			if (!string.IsNullOrEmpty(context.ValidatedRequest.Raw["UserPermissions"]))
+				claims.Add(new Claim(UserClaimKeys.UserPermissions, context.ValidatedRequest.Raw["UserPermissions"]));
 
             context.IssuedClaims = claims;
 		}
