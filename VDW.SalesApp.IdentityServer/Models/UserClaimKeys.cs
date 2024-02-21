@@ -2,18 +2,18 @@
 {
 	public class UserClaimKeys
     {
-        public const string UserId = "UserId";
-        public const string EnglishName = "EnglishName";
-        public const string ChineseName = "ChineseName";
-        public const string PhoneNumber = "PhoneNumber";
-        public const string Email = "Email";
-        public const string IsActive = "IsActive";
-        public const string PermissionList = "RolePermissions";
-        public const string UserCode = "UserCode";
-        public const string CustomerUserRelationshipHash = "CustomerUserRelationshipHash";
-        public const string WechatPermission = "Wechat";
-        public const string WechatUserId = "WechatUserId";
-        public const string CustomerUserId = "CustomerUserId";
-        public const string UserPermissions = "UserPermissions";
+        public const string UserId = "userId";
+        public const string EnglishName = "englishName";
+        public const string ChineseName = "chineseName";
+        public const string PhoneNumber = "phoneNumber";
+        public const string Email = "email";
+        public const string IsActive = "isActive";
+        public const string PermissionList = "rolePermissions";
+        public const string UserCode = "userCode";
+        public const string CustomerUserRelationshipHash = "customerUserRelationshipHash";
+        public const string WechatPermission = "wechat";
+        public const string WechatUserId = "wechatUserId";
+        public const string CustomerUserId = "customerUserId";
+        public const string UserPermissions = "userPermissions";
     }
 }
