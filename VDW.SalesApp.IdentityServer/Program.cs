@@ -26,7 +26,7 @@ namespace VDW.SalesApp.IdentityServer
                          var builtConfig = config.Build();
                          var keyVaultName = builder["Certificate:AzureKeyVaultName"];
                          var secretClient = new SecretClient(
-                             new Uri($"https://{keyVaultName}.vault.azure.net/"),
+                             new Uri($"https://{keyVaultName}.vault.azure.cn/"),
                              new DefaultAzureCredential());
                          config.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
                      }
