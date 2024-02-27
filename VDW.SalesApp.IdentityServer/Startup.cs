@@ -51,7 +51,7 @@ namespace VDW.SalesApp.IdentityServer
             {
                 // Use an Azure key vault
                 KeyVaultCertificateName = configuration["Certificate:AzureKeyVaultCertificateName"],
-                KeyVaultEndpoint = $"https://{configuration["Certificate:AzureKeyVaultName"]}.vault.azure.net/",
+                KeyVaultEndpoint = $"https://{configuration["Certificate:AzureKeyVaultName"]}.vault.azure.cn/",
             };
 
             (X509Certificate2 ActiveCertificate, X509Certificate2 SecondaryCertificate) certs = (null, null);
